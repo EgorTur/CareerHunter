@@ -3,7 +3,10 @@ package parser
 import (
 	"context"
 	"net/http"
+	"net/url"
 	"time"
+
+	"github.com/EgorTur/CareerHunter/internal/domain"
 )
 
 type HabrCareerParser struct {
@@ -35,7 +38,11 @@ func (p *HabrCareerParser) Fetch(ctx context.Context, keywords []string) ([]doma
 	sem := make(chan struct{}, p.MaxConcurrent)
 
 	for _, keyword := range keywords {
-		
+
 	}
 	return vacancies, nil
+}
+
+func genUrl(keyword string) string {
+	base, _ := url.Parse("https://career.habr.com/vacancies")
 }
